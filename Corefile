@@ -1,0 +1,13 @@
+. {
+  log
+  debug
+  prometheus 0.0.0.0:9153
+  dissident {
+    address redis:6379
+  }
+  forward . tls://9.9.9.9 {
+    tls_servername dns.quad9.net
+  }
+  cache 60
+}
+

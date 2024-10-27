@@ -1,0 +1,14 @@
+global:
+  scrape_interval: 5s
+
+  external_labels:
+    monitor: 'dissident'
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'dissident'
+    static_configs:
+      - targets: ['coredns:9153']

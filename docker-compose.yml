@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  coredns:
+    image: coredns-dissident
+    expose:
+      - '9153'
+    ports:
+      - '53:53'
+      - '53:53/udp'
+    volumes:
+      - ./Corefile:/Corefile:ro
+
+  redis:
+    image: hypriot/rpi-redis
+    volumes:
+      - ./data:/data
